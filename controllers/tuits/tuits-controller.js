@@ -20,28 +20,9 @@ const createTuit = (req, res) => {
 }                                               // next chapter will store in database instead
 
 const findTuits = (req, res) => {
-    // // Alternatively we could have used req.query['type'] since
-    // // it is an equivalent syntax in JavaScript.
-    // const type = req.query.type
-    // // const type = req.query['type']
-    // if (type) {
-    //     const tuitsOfType = tuits.filter(u => u.type === type)
-    //     res.json(tuitsOfType)
-    //     return
-    // }
     res.json(tuits)
 }
 
-// const updateTuit = (req, res) => {      // handle PUT /api/tuits/:uid
-//     const tuitId = req.params['tid'];   // get tuit ID from path
-//     const updates = req.body;           // BODY includes updated fields
-//     tuits = tuits.map((t) =>            // create a new array of users
-//         t._id === tuitId ?              // if current tuit's ID matches ID we want to update
-//             { ...t, ...updates } :      // merge old tuit with new updates
-//             t                           // otherwise keep the old tuit
-//     );
-//     res.sendStatus(200);                // return OK
-// }
 const updateTuit = (req, res) => {
     const tuitdIdToUpdate = req.params.tid;     // get ID of tuit to update from path
     const updates = req.body;                   // get updates from HTTP body
@@ -58,5 +39,6 @@ const deleteTuit = (req, res) => {
         t._id !== tuitdIdToDelete);
     res.sendStatus(200);                        // respond with success
 }
+
 
 export default TuitController

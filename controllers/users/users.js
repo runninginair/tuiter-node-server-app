@@ -1,3 +1,5 @@
+// (A8) 3.1 Requesting data from a Web server with a browser
+
 export default [
     {
         "username": "alice",

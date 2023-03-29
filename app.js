@@ -32,11 +32,14 @@
 
 // const express = require('express')
 import express from 'express';
+import cors from 'cors';        // import the new cors (Cross Origin Resource Sharing) library
 import HelloController from "./controllers/hello-controller.js";
 import UserController from "./controllers/users/users-controller.js";
 import TuitController from "./controllers/tuits/tuits-controller.js";
 
 const app = express();
+
+app.use(cors());                // configure cors right after instantiating express
 app.use(express.json());        // parse JSON from HTTP request body
 
 TuitController(app);
