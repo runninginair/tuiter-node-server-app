@@ -170,6 +170,23 @@ Now that we have a ***middle tier***, let's take a look at how to integrate our 
 **CORS** stands for ***Cross Origin Resource Sharing*** and establishes the rules by which resources can be shared across domains (origins). Configure CORS in app.js by importing it and using it as the first middleware.
 
 
+**Axios** 是一个基于promise 网络请求库，作用于 node.js 和浏览器中。 它是isomorphic 的(即同一套代码可以运行在浏览器和node.js中)。 在服务端它使用原生node.js http 模块, 而在客户端(浏览端) 则使用XMLHttpRequests。
+
+In the React application install **axios**, a library to programmatically send and receive HTTP requests..
+
+**$ npm install axios**
+
+In the Node.js server application, we implemented all the tuits related endpoints in one file: tuits-controller.js. We'll follow a similar strategy on the React.js client application implementing all tuits related HTTP communication in tuits-service.js under a new services folder. Declare the four common CRUD operations and implement them in the following sections. The functions are all implemented as asynchronous functions that will not block the browser's sole JavaScript thread. Instead they will rely on the browser's multithreaded capabilities to send HTTP requests asynchronous and notify our functions when responses eventually resolve. We'll implement each service function in the sections that follow.
+
+
+### A8.6.1 Requesting data from a RESTful Web Server API from React
+
+Let's first implement ***findTuits***, the easiest of the services that retrieves all the tuits from the server. The ***findTuits*** function sends an HTTP GET request to ***TUITS_API*** using the ***axios.get()*** function. The request is asynchronous as evidenced by the ***async*** and ***await*** keywords and the response will be set when the request resolves from the server. The data in the response is the tuits array sent back from ***findTuits*** in ***tuits-controller.js*** and it's embedded in the response's ***data*** property.
+
+In previous assignments, reducers were used to keep track of the tuits, initialized from JSON files imported from within the reducers, but now we want to use data from the server instead. Previous implementations used reducer functions to update the state of the tuits array by adding new tuits to the state, deleting tuits, and modifying tuits in a redux store. Now we need to replace this implementation with the HTTP services we implemented in the Node.js server in the previous section. The reducers we've already implemented that create, delete, and update tuits, are all synchronous, manipulating data local to the React.js application, but we need to instead interact asynchronously with an HTTP server, while still maintaining a state with Redux. The Redux createAsyncThunk function can wrap an asynchronous HTTP function so that it can interact with a Redux reducer to store data from a remote server into a local redux store. In tuits-thunks.js, create the findTuitsThunk function that wraps the findTuits HTTP service function as shown below. We'll implement
+thunks for each service function in later sections.
+
+
 ## A8.7 Deploying **RESTful** Web service APIs on a public remote server
 
 ## A8.8 Conclusion
@@ -182,15 +199,15 @@ As a deliverable, make sure you complete all the exercises in this chapter. For 
 
 Create a branch called a8
 
-*git checkout -b a8*
+***git checkout -b a8***
 
-*\# do all your work*
+***\# do all your work*** 
 
 
 Once you've completed all your work, add, commit and push your work to the remote repositories. Add, commit and push the new branch
 
-*git add .*
+***git add .***
 
-*git commit -am "a8 REST spr23"*
+***git commit -am "a8 REST spr23"***
 
-*git push*
+***git push***

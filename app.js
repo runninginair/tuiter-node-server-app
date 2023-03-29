@@ -19,7 +19,6 @@
  * the HTTP request.
  */
 
-
 /**     2.7 Configuring Node.js to use ES6
  * 
  * So far we've been using the keyword "import" to load ES6 modules in our
@@ -46,7 +45,15 @@ TuitController(app);
 HelloController(app);
 UserController(app);
 
-app.listen(4000);
+
+/**     7.1 Configuring Node applications to run in a remote server
+ * 
+ * We're going to host our Node HTTP server on a remote server where we can't use port 4000.
+ * Instead remote servers declare the proper port to use in an environment variable called PORT
+ * available from Node using process.env.PORT. Refactor app.js so that it uses the PORT
+ * environment variable if available, or uses 4000 otherwise when running locally on our machines.
+ */
+app.listen(process.env.PORT || 4000);
 
 /** The following part are demos of online course cs5610-6.
 
