@@ -36,6 +36,11 @@ import HelloController from "./controllers/hello-controller.js";
 import UserController from "./controllers/users/users-controller.js";
 import TuitController from "./controllers/tuits/tuits-controller.js";
 
+// A-9 3.1 Installing and connecting to a MongoDB database
+import mongoose from 'mongoose';                        // load the mongoose library
+mongoose.connect('mongodb://localhost:27017/tuiter');   // connect to the tuiter database
+
+
 const app = express();
 
 app.use(cors());                // configure cors right after instantiating express
