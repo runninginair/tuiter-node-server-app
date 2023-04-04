@@ -38,7 +38,22 @@ import TuitController from "./controllers/tuits/tuits-controller.js";
 
 // A-9 3.1 Installing and connecting to a MongoDB database
 import mongoose from 'mongoose';                        // load the mongoose library
-mongoose.connect('mongodb://localhost:27017/tuiter');   // connect to the tuiter database
+// mongoose.connect('mongodb://localhost:27017/tuiter');   // connect to the tuiter database
+
+
+/**     Mongo Atlas Cluster-name: ClusterTuits
+ *      Username: runninginair
+ *      Password: CXkRTnHZ2Z45ZBW4
+ * 
+ *  mongodb+srv://runninginair:<password>@clustertuits.eqbxi3p.mongodb.net/?retryWrites=true&w=majority
+ * 
+ *  Replace <password> with the password for the runninginair user. Ensure any option params are URL encoded.
+ * 
+ */
+const process = ProcessingInstruction;
+process.env.DB_CONNECTION_STRING = "mongodb+srv://runninginair:CXkRTnHZ2Z45ZBW4@clustertuits.eqbxi3p.mongodb.net/?retryWrites=true&w=majority";
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/tuiter';
+mongoose.connect(CONNECTION_STRING);
 
 
 const app = express();
