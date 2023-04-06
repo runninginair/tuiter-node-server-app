@@ -50,13 +50,17 @@ import mongoose from 'mongoose';                        // load the mongoose lib
  *  Replace <password> with the password for the runninginair user. Ensure any option params are URL encoded.
  * 
  */
-// const process = ProcessingInstruction;
+const process = ProcessingInstruction;
 // process.env.DB_CONNECTION_STRING = "mongodb+srv://runninginair:CXkRTnHZ2Z45ZBW4@clustertuits.eqbxi3p.mongodb.net/?retryWrites=true&w=majority";
 // const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/tuiter';
 // mongoose.connect(CONNECTION_STRING);
-const DB_CONNECTION_STRING = "mongodb+srv://runninginair:CXkRTnHZ2Z45ZBW4@clustertuits.eqbxi3p.mongodb.net/?retryWrites=true&w=majority";
-const CONNECTION_STRING = DB_CONNECTION_STRING || 'mongodb://localhost:27017/tuiter';
-mongoose.connect(CONNECTION_STRING);
+// const DB_CONNECTION_STRING = "mongodb+srv://runninginair:CXkRTnHZ2Z45ZBW4@clustertuits.eqbxi3p.mongodb.net/?retryWrites=true&w=majority";
+// const CONNECTION_STRING = DB_CONNECTION_STRING || 'mongodb://localhost:27017/tuiter';
+// mongoose.connect(CONNECTION_STRING);
+
+mongoose.connect(
+    "mongodb+srv://runninginair:CXkRTnHZ2Z45ZBW4@clustertuits.eqbxi3p.mongodb.net/?retryWrites=true&w=majority"
+);
 
 
 const app = express();
