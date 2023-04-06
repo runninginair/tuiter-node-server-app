@@ -40,7 +40,6 @@ import TuitController from "./controllers/tuits/tuits-controller.js";
 import mongoose from 'mongoose';                        // load the mongoose library
 // mongoose.connect('mongodb://localhost:27017/tuiter');   // connect to the tuiter database
 
-
 /**     Mongo Atlas Cluster-name: ClusterTuits
  *      Username: runninginair
  *      Password: CXkRTnHZ2Z45ZBW4
@@ -59,7 +58,9 @@ import mongoose from 'mongoose';                        // load the mongoose lib
 // const CONNECTION_STRING = DB_CONNECTION_STRING || 'mongodb://localhost:27017/tuiter';
 // mongoose.connect(CONNECTION_STRING);
 
-mongoose.connect('mongodb+srv://runninginair:CXkRTnHZ2Z45ZBW4@clustertuits.eqbxi3p.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect(
+    'mongodb+srv://runninginair:CXkRTnHZ2Z45ZBW4@clustertuits.eqbxi3p.mongodb.net/tuiter-sp23-06?retryWrites=true&w=majority'
+);
 
 
 const app = express();

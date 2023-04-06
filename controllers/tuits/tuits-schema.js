@@ -5,7 +5,6 @@ const schema = mongoose.Schema(
         tuit: String,
         likes: Number,
         liked: Boolean,
-
         topic: String,
         username: String,
         handle: String,
@@ -13,11 +12,11 @@ const schema = mongoose.Schema(
         image: String,
         title: String,
         dislikes: Number,
-        replies: Number, 
+        replies: Number,
         retuits: Number
     },
     {
-        collection: 'tuits'     // collection name where tuits are stored in tuiter database
+        collection: 'tuits_v2'     // collection name where tuits are stored in tuiter database
     }
 );
 
